@@ -1,0 +1,10 @@
+venv/*
+dist/*
+build/*
+*.egg-info
+*.env
+.idea/*
+*.pyc
+.vscode/*
+protos/*
+.mypy_cache/

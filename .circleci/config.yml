@@ -1,0 +1,23 @@
+version: 2.1
+
+orbs:
+  aws-ecr: circleci/aws-ecr@6.8.1
+
+workflows:
+  build_and_push_image:
+    jobs:
+      - aws-ecr/build-and-push-image:
+          account-url: ACCOUNT_URL
+          aws-access-key-id: AWS_ACCESS_KEY
+          aws-secret-access-key: AWS_SECRET_KEY
+          context: ECR_DEVOPS
+          create-repo: false
+          dockerfile: "Dockerfile"
+          path: "./"
+          region: ECR_REGION
+          repo: "analyzers/<analyzer-name>"
+          tag: "latest"
+          filters:
+            branches:
+              only:
+                - master
